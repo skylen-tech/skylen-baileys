@@ -1,12 +1,12 @@
 <div align="center">
 
-# @skylen/baileys
+# skylen-baileys
 
 ### Modded Baileys v7 — Interactive Messages, AI Rich Responses, Albums & More
 
-[![npm version](https://img.shields.io/npm/v/@skylen/baileys?color=CB3837&logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/@skylen/baileys)
-[![npm downloads](https://img.shields.io/npm/dm/@skylen/baileys?color=CB3837&logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/@skylen/baileys)
-[![GitHub](https://img.shields.io/github/stars/skylen-tech/@skylen/baileys?color=181717&logo=github&logoColor=white&style=for-the-badge)](https://github.com/skylen-tech/@skylen/baileys)
+[![npm version](https://img.shields.io/npm/v/skylen-baileys?color=CB3837&logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/skylen-baileys)
+[![npm downloads](https://img.shields.io/npm/dm/skylen-baileys?color=CB3837&logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/skylen-baileys)
+[![GitHub](https://img.shields.io/github/stars/skylen-tech/skylen-baileys?color=181717&logo=github&logoColor=white&style=for-the-badge)](https://github.com/skylen-tech/skylen-baileys)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-339933?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org)
 [![ESM](https://img.shields.io/badge/ESM-only-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)](#)
@@ -16,7 +16,7 @@
 **A modded build of [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys)**
 with native support for interactive messages, album messages, unified rich responses, newsletter helpers, status mentions, and additional business/community utilities.
 
-This repository is a **distribution/build repo** for `@skylen/baileys`.
+This repository is a **distribution/build repo** for `skylen-baileys`.
 It ships compiled runtime files in `lib/` and protobuf artifacts in `WAProto/`, and is intended to be consumed directly from npm or as a vendored dependency inside the **skylen-bot** ecosystem.
 
 </div>
@@ -25,7 +25,7 @@ It ships compiled runtime files in `lib/` and protobuf artifacts in `WAProto/`, 
 
 ## Table of Contents
 
-- [@skylen/baileys](#skylenbaileys)
+- [skylen-baileys](#skylenbaileys)
   - [Modded Baileys v7 — Interactive Messages, AI Rich Responses, Albums & More](#modded-baileys-v7--interactive-messages-ai-rich-responses-albums--more)
   - [Table of Contents](#table-of-contents)
   - [✨ Features](#-features)
@@ -101,7 +101,7 @@ It ships compiled runtime files in `lib/` and protobuf artifacts in `WAProto/`, 
   - `sharp`, `jimp`, `audio-decode`, `link-preview-js` for optional media/rich utilities
 
 > [!IMPORTANT]
-> `@skylen/baileys` is **ESM-only**. CommonJS projects will need migration or dynamic import wrappers.
+> `skylen-baileys` is **ESM-only**. CommonJS projects will need migration or dynamic import wrappers.
 
 ---
 
@@ -127,7 +127,7 @@ If you are documenting or integrating this project, treat `lib/index.js` and `li
 ### From NPM
 
 ```bash
-npm install @skylen/baileys
+npm install skylen-baileys
 ```
 
 Recommended companion packages for examples in this README:
@@ -143,7 +143,7 @@ Add to `package.json`:
 ```json
 {
   "dependencies": {
-    "skylen": "npm:@skylen/baileys@latest"
+    "skylen": "npm:skylen-baileys@latest"
   }
 }
 ```
@@ -178,18 +178,18 @@ Ensure `package.json` has `"type": "module"`:
   "name": "my-bot",
   "type": "module",
   "dependencies": {
-    "skylen": "npm:@skylen/baileys@latest"
+    "skylen": "npm:skylen-baileys@latest"
   }
 }
 ```
 
 > [!IMPORTANT]
-> **Required**: `"type": "module"` — @skylen/baileys is ESM-only. Without this, imports will fail.
+> **Required**: `"type": "module"` — skylen-baileys is ESM-only. Without this, imports will fail.
 
 ### 2. Install Dependencies
 
 ```bash
-npm install @skylen/baileys pino qrcode-terminal
+npm install skylen-baileys pino qrcode-terminal
 ```
 
 ### 3. Create `index.js`
@@ -199,7 +199,7 @@ import makeWASocket, {
   useMultiFileAuthState,
   DisconnectReason,
   Browsers,
-} from "@skylen/baileys";
+} from "skylen-baileys";
 import pino from "pino";
 import qrcode from "qrcode-terminal";
 
@@ -389,7 +389,7 @@ console.log("Pairing code:", code); // e.g. "A1B2-C3D4"
 **Authentication State:**
 
 ```js
-import { useMultiFileAuthState } from "@skylen/baileys";
+import { useMultiFileAuthState } from "skylen-baileys";
 
 const { state, saveCreds } = await useMultiFileAuthState("./session");
 // state.creds → credentials (me, platform, noise keys, etc.)
@@ -404,7 +404,7 @@ import {
   BufferJSON,
   initAuthCreds,
   makeCacheableSignalKeyStore,
-} from "@skylen/baileys";
+} from "skylen-baileys";
 
 const credsStore = new Map();
 const keyStoreData = new Map();
@@ -463,7 +463,7 @@ import {
   DisconnectReason,
   fetchLatestBaileysVersion,
   makeCacheableSignalKeyStore,
-} from "@skylen/baileys";
+} from "skylen-baileys";
 
 const { version, isLatest } = await fetchLatestBaileysVersion();
 console.log(version, isLatest);
@@ -919,13 +919,13 @@ await sock.sendLinkV2(
   "Search results:\n- {{IE_0}}Official docs{{/IE_0}}\n- {{IE_1}}GitHub repo{{/IE_1}}",
   [
     {
-      url: "https://www.npmjs.com/package/@skylen/baileys",
+      url: "https://www.npmjs.com/package/skylen-baileys",
       displayName: "Official docs",
       sourceDisplayName: "npm",
       sourceSubtitle: "package registry",
     },
     {
-      url: "https://github.com/skylen-tech/@skylen/baileys",
+      url: "https://github.com/skylen-tech/skylen-baileys",
       displayName: "GitHub repo",
       sourceDisplayName: "github",
       sourceSubtitle: "source hosting",
@@ -933,7 +933,7 @@ await sock.sendLinkV2(
   ],
   quoted,
   {
-    headerText: "@skylen/baileys",
+    headerText: "skylen-baileys",
     footer: "Reference links",
     searchEngine: "MAME",
   },
@@ -1497,7 +1497,7 @@ import {
 
   // Types
   WASocket,
-} from "@skylen/baileys";
+} from "skylen-baileys";
 ```
 
 > [!NOTE]
@@ -1530,7 +1530,7 @@ Important build notes:
 
 ## 🔀 Differences from Official Baileys
 
-| Area                 | Official Baileys v7 | @skylen/baileys                          |
+| Area                 | Official Baileys v7 | skylen-baileys                          |
 | -------------------- | ------------------- | ---------------------------------------- |
 | Interactive messages | No native support   | Full support via Dugong                  |
 | Album messages       | Not supported       | Multi-media albums                       |
@@ -1576,6 +1576,6 @@ MIT © [skylen-tech](https://github.com/skylen-tech)
 
 **Made with 💚 by SkyLen Technologies**
 
-[⭐ Star this repo](https://github.com/skylen-tech/@skylen/baileys) · [🐛 Report Bug](https://github.com/skylen-tech/@skylen/baileys/issues) · [💡 Request Feature](https://github.com/skylen-tech/@skylen/baileys/issues)
+[⭐ Star this repo](https://github.com/skylen-tech/skylen-baileys) · [🐛 Report Bug](https://github.com/skylen-tech/skylen-baileys/issues) · [💡 Request Feature](https://github.com/skylen-tech/skylen-baileys/issues)
 
 </div>

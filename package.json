@@ -1,7 +1,7 @@
 {
-  "name": "@skylen/baileys",
+  "name": "skylen-baileys",
   "type": "module",
-  "version": "3.22.6.1",
+  "version": "7.2.3",
   "description": "Modded Baileys v7 with interactive message, album, and newsletter support",
   "license": "MIT",
   "main": "lib/index.js",
